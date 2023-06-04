@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="DSPDet3D: Dynamic Spatial Pruning for 3D Small Object Detection">
+    <meta name="author" content="Xiuwei Xu,
+                                 Zhihao Sun,
+                                 Ziwei Wang,
+                                 Hongmin Liu,
+                                 Jie Zhou,
+                                 Jiwen Lu">
+
+    <title>DSPDet3D: Dynamic Spatial Pruning for 3D Small Object Detection</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>DSPDet3D: Dynamic Spatial Pruning for 3D Small Object Detection</h2>
+    <h3>arXiv 2023</h3>
+<!--            <p class="abstract">An interpretable, data-efficient, and scalable neural scene representation.</p>-->
+    <hr>
+    <p>
+        <span style="white-space: nowrap; font-size:larger">
+        <a href="https://xuxw98.github.io/">Xiuwei Xu</a><sup>1,2</sup>&nbsp;&nbsp;
+        Zhihao Sun<sup>3</sup>&nbsp;&nbsp;
+        <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a><sup>1,2</sup>&nbsp;&nbsp;
+        Hongmin Liu<sup>3</sup>&nbsp;&nbsp;
+        <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1">Jie Zhou</a><sup>1,2</sup>&nbsp;&nbsp;
+        <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a><sup>1,2&#8224;</sup>
+        </span>
+        <br><br>
+        <sup>1</sup>Department of Automation, Tsinghua University<br>
+        <sup>2</sup>Beijing National Research Center for Information Science and Technology, China<br>
+        <sup>3</sup>The School of Intelligence Science and Technology, University of Science and Technology Beijing<br>
+        <br><br>
+        <a href="https://arxiv.org/abs/2305.03716" target="_blank" style="color: #1E90FF;">
+            <img src="https://img.icons8.com/material-outlined/24/000000/file.png" alt="paper" style="vertical-align: middle;">
+            &nbsp;Paper (arXiv)
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/xuxw98/DSPDet3D" target="_blank" style="color: #1E90FF;">
+            <img src="https://img.icons8.com/material-outlined/24/000000/github.png" alt="code" style="vertical-align: middle;">
+            &nbsp;Code (GitHub)
+        </a>
+    </p>
+
+    <!-- <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary" href="https://arxiv.org/abs/2006.09661">Paper</a>
+        <a class="btn btn-primary" href="https://colab.research.google.com/github/vsitzmann/siren/blob/master/explore_siren.ipynb">Colab Notebook</a>
+        <a class="btn btn-primary" href="https://dcato98.github.io/playground/#activation=sine">Tensorflow Playground</a>
+        <a class="btn btn-primary" href="https://github.com/vsitzmann/siren">Code</a>
+        <a class="btn btn-primary" href="https://drive.google.com/drive/u/1/folders/1_iq__37-hw7FJOEUK1tX7mdp8SKB368K">Data</a>
+    </div> -->
+</div>
+
+<div class="container">
+    <div class="vcontainer">
+        <iframe class='video' src="https://www.youtube.com/embed/" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="section">
+        <h2>Abstract</h2>
+        <hr>
+        <p>
+            Fine-grained 3D object detection is a core ability for agents to understand their 3D environment and interact with surrounding objects. However, current methods and benchmarks mainly focus on relatively large stuff. 3D object detectors still struggle on small objects due to weak geometric information. With in-depth study, we find increasing the spatial resolution of the feature maps significantly boosts the performance of 3D small object detection. And more interestingly, though the computational overhead increases dramatically with resolution, the growth mainly comes from the upsampling operation of the decoder. Inspired by this, we present a high-resolution multi-level detector with dynamic spatial pruning named DSPDet3D, which detects objects from large to small by iterative upsampling and meanwhile prunes the spatial representation of the scene at regions where there is no smaller object to be detected in higher resolution. We organize two benchmarks on ScanNet and TO-SCENE dataset to evaluate the ability of fine-grained 3D object detection, where our DSPDet3D improves the detection performance of small objects to a new level while achieving leading inference speed compared with existing 3D object detection methods. Moreover, DSPDet3D trained with only ScanNet rooms can generalize well to scenes in larger scale. It takes <b>less than 2s</b> for DSPDet3D to <b>directly process a whole house or building</b> consisting of dozens of rooms while detecting out almost all objects, ranging from <b>bottles to beds</b>, on a single RTX 3090 GPU.
+        </p>
+        <!-- add a image here-->
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/teaser2.png" alt="pipeline" width="100%">
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Approach</h2>
+        <hr>
+        <!-- add a image here-->
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/pipeline.jpg" alt="pipeline" width="100%">
+            </div>
+        </div>
+        <p>
+            Illustration of DSPDet3D. The voxelized point clouds are fed into a high-resolution sparse convolutional backbone, which output four levels of scene representations. Four dynamic spatial pruning (DSP) blocks are stacked to construct a multi-level FPN-like decoder and detect objects from coarse to fine. Each DSP block merges the backbone and upsampled features, generates object proposals for detection and selectively upsamples the feature map by pruning uninformative voxels. During training, we switch the pruning to weak mode for context preservation. We detail DSP block on the right. Note that the part (a) and (c) of DSP are absent in level 4 and level 1 respectively.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+            <div class="bibtexsection">
+        @article{xu2023dsp, 
+            title={DSPDet3D: Dynamic Spatial Pruning for 3D Small Object Detection}, 
+            author={Xiuwei Xu and Zhihao Sun and Ziwei Wang and Hongmin Liu and Jie Zhou and Jiwen Lu},
+            journal={arXiv preprint arXiv:2305.03716},
+            year={2023}
+        }
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <!-- <h6>Acknowledgement</h6> -->
+        <p><small>The website template was borrowed from <a href="https://liuff19.github.io/S-Ray/">Fangfu Liu</a></small></p>
+    </footer>
+</div>
+
+    <p><center>
+        <div id="clustrmaps-widget" style="width:7%">
+            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=PKSK0rAtlXXVNAeVi2WdLlRQgBniBYj4F01cFAkZol8"></script>    
+        </div>        
+        <br>
+        &copy; Xiuwei Xu | Last update: June. 4, 2023
+    </center></p>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
