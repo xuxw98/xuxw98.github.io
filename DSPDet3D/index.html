@@ -75,7 +75,8 @@
         <h2>Abstract</h2>
         <hr>
         <p>
-            Fine-grained 3D object detection is a core ability for agents to understand their 3D environment and interact with surrounding objects. However, current methods and benchmarks mainly focus on relatively large stuff. 3D object detectors still struggle on small objects due to weak geometric information. With in-depth study, we find increasing the spatial resolution of the feature maps significantly boosts the performance of 3D small object detection. And more interestingly, though the computational overhead increases dramatically with resolution, the growth mainly comes from the upsampling operation of the decoder. Inspired by this, we present a high-resolution multi-level detector with dynamic spatial pruning named DSPDet3D, which detects objects from large to small by iterative upsampling and meanwhile prunes the spatial representation of the scene at regions where there is no smaller object to be detected in higher resolution. We organize two benchmarks on ScanNet and TO-SCENE dataset to evaluate the ability of fine-grained 3D object detection, where our DSPDet3D improves the detection performance of small objects to a new level while achieving leading inference speed compared with existing 3D object detection methods. Moreover, DSPDet3D trained with only ScanNet rooms can generalize well to scenes in larger scale. It takes <b>less than 2s</b> for DSPDet3D to <b>directly process a whole house or building</b> consisting of dozens of rooms while detecting out almost all objects, ranging from <b>bottles to beds</b>, on a single RTX 3090 GPU.
+            In this paper, we propose an efficient feature pruning strategy for 3D small object detection. Conventional 3D object detection methods struggle on small objects due to the weak geometric information from a small number of points. Although increasing the spatial resolution of feature representations can improve the detection performance on small objects, the additional computational overhead is unaffordable.
+With in-depth study, we observe the growth of computation mainly comes from the upsampling operation in the decoder of 3D detector. Motivated by this, we present a multi-level 3D detector named DSPDet3D which benefits from high spatial resolution to achieves high accuracy on small object detection, while reducing redundant computation by only focusing on small object areas. Specifically, we theoretically derive a dynamic spatial pruning (DSP) strategy to prune the redundant spatial representation of 3D scene in a cascade manner according to the distribution of objects. Then we design DSP module following this strategy and construct DSPDet3D with this efficient module. On ScanNet and TO-SCENE dataset, our method achieves leading performance on small object detection. Moreover, DSPDet3D trained with only ScanNet rooms can generalize well to scenes in larger scale. It takes less than 2s to directly process a whole building consisting of more than 4500k points while detecting out almost all objects, ranging from cups to beds, on a single RTX 3090 GPU. We will release the source code in the final version.
         </p>
         <!-- add a image here-->
         <div class="row align-items-center">
@@ -89,16 +90,16 @@
         <h2>Approach</h2>
         <hr>
         <p>
-            Through in-depth analysis, we summarize three key points for designing an effective and efficient 3D detector for small object detection: (1) multi-level FPN-like architecture; (2) increasing the spatial resolution; (3) removing the useless computation in upsampling layers. To this end, we propose DSPDet3D.
+            Through in-depth analysis, we summarize three key points for designing an effective and efficient 3D detector for small object detection: (1) multi-level FPN-like architecture; (2) increasing the spatial resolution; (3) removing the useless computation in upsampling layers. To this end, we derive an optimal pruning strategy and propose DSPDet3D.
         </p>
         <!-- add a image here-->
         <div class="row align-items-center">
             <div class="col justify-content-center text-center">
-                <img src="img/pipeline.jpg" alt="pipeline" width="90%">
+                <img src="img/pipeline_v2.jpg" alt="pipeline" width="90%">
             </div>
         </div>
         <p>
-            <b>Illustration of DSPDet3D.</b> The voxelized point clouds are fed into a high-resolution sparse convolutional backbone, which output four levels of scene representations. Four dynamic spatial pruning (DSP) blocks are stacked to construct a multi-level FPN-like decoder and detect objects from coarse to fine. Each DSP block merges the backbone and upsampled features, generates object proposals for detection and selectively upsamples the feature map by pruning uninformative voxels. During training, we switch the pruning to weak mode for context preservation. We detail DSP block on the right. Note that the part (a) and (c) of DSP are absent in level 4 and level 1 respectively.
+            <b>Illustration of DSPDet3D.</b> The voxelized point clouds are fed into a high-resolution sparse convolutional backbone, which output four levels of scene representations. Four dynamic spatial pruning (DSP) modules are stacked to construct a multi-level decoder and detect objects from coarse to fine. DSP module utilizes a light-weight learnable module to predict the pruning mask. During inference, we discretize the pruning mask and use it to guide pruning before generative upsampling. While during training we interpolate the pruning mask to next level and prune the voxel features after generative upsampling.
         </p>
     </div>
 
@@ -111,7 +112,7 @@
         <!-- add a image here-->
         <div class="row align-items-center">
             <div class="col justify-content-center text-center">
-                <img src="img/exp.png" alt="pipeline" width="90%">
+                <img src="img/exp_v2.png" alt="pipeline" width="90%">
             </div>
         </div>
         <p>
@@ -124,7 +125,7 @@
         <hr>
             <div class="bibtexsection">
         @article{xu2023dsp, 
-            title={DSPDet3D: Dynamic Spatial Pruning for 3D Small Object Detection}, 
+            title={3D Small Object Detection with Dynamic Spatial Pruning}, 
             author={Xiuwei Xu and Zhihao Sun and Ziwei Wang and Hongmin Liu and Jie Zhou and Jiwen Lu},
             journal={arXiv preprint arXiv:2305.03716},
             year={2023}
