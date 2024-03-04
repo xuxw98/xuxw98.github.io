@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Memory-based Adapters for Online 3D Scene Perception">
+    <meta name="author" content="Xiuwei Xu,
+                                 Chong Xia,
+                                 Ziwei Wang,
+                                 Linqing Zhao,
+                                 Yueqi Duan,
+                                 Jie Zhou,
+                                 Jiwen Lu">
+
+    <title>Memory-based Adapters for Online 3D Scene Perception</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>Memory-based Adapters for Online 3D Scene Perception</h2>
+    <h3>CVPR 2024</h3>
+<!--            <p class="abstract">An interpretable, data-efficient, and scalable neural scene representation.</p>-->
+    <hr>
+    <p>
+        <span style="white-space: nowrap; font-size:larger">
+        <a href="https://xuxw98.github.io/">Xiuwei Xu</a><sup>*</sup>&nbsp;&nbsp;
+        Chong Xia<sup>*</sup>&nbsp;&nbsp;
+        <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a>&nbsp;&nbsp;
+        <a href="https://scholar.google.com/citations?user=ypxt5UEAAAAJ&hl=zh-CN&oi=ao">Linqing Zhao</a>&nbsp;&nbsp;
+        <a href="https://duanyueqi.github.io/">Yueqi Duan</a>&nbsp;&nbsp;
+        <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1">Jie Zhou</a>&nbsp;&nbsp;
+        <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a><sup>&#8224;</sup>
+        </span>
+        <br><br>
+        Tsinghua University<br>
+        <br><br>
+        <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" style="color: #1E90FF;">
+            <img src="https://img.icons8.com/material-outlined/24/000000/file.png" alt="paper" style="vertical-align: middle;">
+            &nbsp;Paper (arXiv)
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/xuxw98/Online3D" target="_blank" style="color: #1E90FF;">
+            <img src="https://img.icons8.com/material-outlined/24/000000/github.png" alt="code" style="vertical-align: middle;">
+            &nbsp;Code (GitHub)
+        </a>
+    </p>
+
+    <!-- <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary" href="https://arxiv.org/abs/2006.09661">Paper</a>
+        <a class="btn btn-primary" href="https://colab.research.google.com/github/vsitzmann/siren/blob/master/explore_siren.ipynb">Colab Notebook</a>
+        <a class="btn btn-primary" href="https://dcato98.github.io/playground/#activation=sine">Tensorflow Playground</a>
+        <a class="btn btn-primary" href="https://github.com/vsitzmann/siren">Code</a>
+        <a class="btn btn-primary" href="https://drive.google.com/drive/u/1/folders/1_iq__37-hw7FJOEUK1tX7mdp8SKB368K">Data</a>
+    </div> -->
+</div>
+
+<div class="container">
+    <div class="vcontainer">
+        <iframe class='video' src="https://www.youtube.com/embed/xxxxx" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="section">
+        <h2>Abstract</h2>
+        <hr>
+        <p>
+            In this paper, we propose a new framework for online 3D scene perception. Conventional 3D scene perception methods are offline, i.e., take an already reconstructed 3D scene geometry as input, which is not applicable in robotic applications where the input data is streaming RGB-D videos rather than a complete 3D scene reconstructed from pre-collected RGB-D videos. To deal with online 3D scene perception tasks where data collection and perception should be performed simultaneously, the model should be able to process 3D scenes frame by frame and make use of the temporal information. To this end, we propose an adapter-based plug-and-play module for the backbone of 3D scene perception model, which constructs memory to cache and aggregate the extracted RGB-D features to empower offline models with temporal learning ability. Specifically, we propose a queued memory mechanism to cache the supporting point cloud and image features. Then we devise aggregation modules which directly perform on the memory and pass temporal information to current frame. We further propose 3D-to-2D adapter to enhance image features with strong global context. Our adapters can be easily inserted into mainstream offline architectures of different tasks and significantly boost their performance on online tasks. Extensive experiments on ScanNet and SceneNN datasets demonstrate our approach <b>achieves leading performance on three 3D scene perception tasks</b> compared with state-of-the-art online methods by <b>simply finetuning existing offline models, without any model and task-specific designs</b>.
+        </p>
+        <!-- add a image here-->
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/teaser.png" alt="pipeline" width="100%">
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Approach</h2>
+        <hr>
+        <p>
+            <b>Overall architecture of our approach.</b> We insert memory-based adapters after image and point cloud backbones, which cache the extracted features in memory over time and perform temporal aggregation. 3D-to-2D adapter is proposed to further exploit inter-modal temporal information. Solid lines indicate operations within a single frame, while dashed lines indicate temporal operations.
+        </p>
+        <!-- add a image here-->
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/pipeline.png" alt="pipeline" width="90%">
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Experiments</h2>
+        <hr>
+        <p>
+            We evaluate out method on ScanNet and SceneNN datasets for three 3D scene perception tasks.
+        </p>
+        <!-- add a image here-->
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/exp1.png" alt="pipeline" width="50%">
+            </div>
+        </div>
+        <p>
+            <b>3D semantic segmentation results on ScanNet and SceneNN datasets.</b> For online methods, we map the predictions on point clouds concatenated from posed RGB-D images to the reconstructed point clouds to compare with offline method.
+        </p>
+        <!-- add a image here-->
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/exp2.png" alt="pipeline" width="55%">
+            </div>
+        </div>
+        <p>
+            <b>3D object detection and instance segmentation results on ScanNet dataset.</b> Offline and online methods are separated by horizontal line. &#8224; means INS-Conv requires an additional 3D reconstruction algorithm to acquire high-quality point clouds or meshes.
+        </p>
+        <!-- add a image here-->
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/exp.png" alt="pipeline" width="90%">
+            </div>
+        </div>
+        <p>
+            <b>The performance of different 3D scene perception methods on ScanNet online benchmark.</b> We report mIoU / mAcc, mAP@25 / mAP@50 and mAP@25 / mAP@50 for semantic segmentation, object detection and instance segmentation respectively.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+            <div class="bibtexsection">
+        @article{xu2024online, 
+          title={Memory-based Adapters for Online 3D Scene Perception}, 
+          author={Xiuwei Xu and Chong Xia and Ziwei Wang and Linqing Zhao and Yueqi Duan and Jie Zhou and Jiwen Lu},
+          journal={arXiv preprint arXiv:xxxx.xxxxx},
+          year={2024}
+        }
+            </div>
+        </div>
+    </div>
+
+    <hr>
+</div>
+
+    <p><center>
+        <div id="clustrmaps-widget" style="width:30%">
+            <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=eRnCB4-HrSw_k86xQMK_G8k71J2xtdHboK6TdVmh9pQ&cl=ffffff&w=a"></script>    
+        </div>        
+        <br>
+        &copy; Xiuwei Xu | Last update: March. 4, 2024
+    </center></p>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
