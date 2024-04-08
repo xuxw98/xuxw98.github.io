@@ -39,7 +39,7 @@
                 <b style="color:green">3D scene perception</b> that accurately and efficiently understands the surrounding 3D scenes captured by robotic agent.
               </li>
                <li style="margin: 5px;" >
-                <b style="color:orange">Model compression</b> that reduces the computation and storage cost of neural networks with techniques such as quantization.
+                <b style="color:orange">Model compression</b> that reduces the computation and storage cost of neural networks with techniques like quantization and pruning.
               </li>
               </p>
               <p style="text-align:center">
@@ -60,7 +60,7 @@
           <td style="padding:20px;width:100%;vertical-align:middle">
             <heading>News</heading>
             <p>
-	      <li style="margin: 5px;" >
+        <li style="margin: 5px;" >
                 <b>2024-02:</b> Three papers are accepted to <a href="https://cvpr.thecvf.com/">CVPR 2024</a>.
               </li>
               <li style="margin: 5px;" >
@@ -81,7 +81,7 @@
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
               <p><heading>Preprint</heading></p>
-	      <p>
+        <p>
                 * indicates equal contribution
               </p>
             </td>
@@ -138,7 +138,7 @@
           </tr>
         </tbody></table>
 
-	<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
           <tr>
             <td style="padding:20px;width:30%;max-width:30%" align="center">
@@ -154,6 +154,27 @@
               <a href="https://arxiv.org/abs/2403.06974">[arXiv]</a> <a href="https://github.com/xuxw98/Online3D">[Code]</a> <a href="https://xuxw98.github.io/Online3D/">[Project Page]</a>
               <br>
               <p> We propose a model and task-agnostic plug-and-play module, which converts offline 3D scene perception models (receive reconstructed point clouds) to online perception models (receive streaming RGB-D videos). </p>
+            </td>
+          </tr>
+
+        </tbody></table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+          <tr>
+            <td style="padding:20px;width:30%;max-width:30%" align="center">
+              <img style="width:100%;max-width:100%" src='images/ADPDM.png' alt="dise">
+            </td>
+            <td width="75%" valign="center">
+              <papertitle>Towards Accurate Data-free Quantization for Diffusion Models</papertitle>
+              <br>
+              Changyuan Wang, <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a>, <strong>Xiuwei Xu</strong>, <a href="https://andytang15.github.io/">Yansong Tang</a>, <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1">Jie Zhou</a>, <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a>
+              <br>
+              <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)</em>, 2024 (<em><strong style="color:red;">Highlight</strong></em>)
+              <br>
+              <a href="https://arxiv.org/abs/2305.18723">[arXiv]</a> <a href="https://github.com/ChangyuanWang17/APQ-DM">[Code]</a>
+              <br>
+              <p> We propose a post-training quantization framework to compress diffusion models, which performs group-wise quantization to minimize rounding errors across time steps and selects generated contents in the optimal time steps for calibration. </p>
             </td>
           </tr>
 
@@ -201,8 +222,8 @@
 
         </tbody></table>
 
-	      
-	     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        
+       <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
           <tr>
             <td style="padding:20px;width:30%;max-width:30%" align="center">
@@ -239,27 +260,6 @@
               <a href="https://xuxw98.github.io/files/Quantformer.pdf">[PDF]</a> <a href="https://xuxw98.github.io/files/Quantformer-supp.pdf">[Supp]</a> <a href="https://github.com/ZiweiWangTHU/Quantformer">[Code]</a> 
               <br>
               <p> We propose the extremely low-precision vision transformers in 2-4 bits, where a self-attention rank consistency loss and a group-wise quantization strategy are presented for quantization error minimization. </p>
-            </td>
-          </tr>
-
-        </tbody></table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-          <tr>
-            <td style="padding:20px;width:30%;max-width:30%" align="center">
-              <img style="width:100%;max-width:100%" src='images/PointRas.png' alt="dise">
-            </td>
-            <td width="75%" valign="center">
-              <papertitle>PointRas: Uncertainty-Aware Multi-Resolution Learning for Point Cloud Segmentation</papertitle>
-              <br>
-              <a href="https://scholar.google.com/citations?user=J4ZIfhwAAAAJ&hl=en">Yu Zheng</a>, <strong>Xiuwei Xu</strong>, <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1">Jie Zhou</a>, <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a>
-              <br>
-              <em>IEEE Transactions on Image Processing (<strong>T-IP</strong>, IF: 10.6)</em>, 2022
-              <br>
-              <a href="https://xuxw98.github.io/files/PointRas.pdf">[PDF]</a>
-              <br>
-              <p> We propose an uncertainty-aware multi-resolution learning for point cloud segmentation, which can be inserted into any PointNet++-based backbone to iteratively fix the error in predicted semantic mask. </p>
             </td>
           </tr>
 
@@ -356,9 +356,9 @@
             <td style="padding:20px;width:100%;vertical-align:middle">
               <heading>Teaching</heading>
               <p>
-		<li style="margin: 5px;"> Teaching Assistant, Computer vision, 2024 Spring Semester</li>
+    <li style="margin: 5px;"> Teaching Assistant, Computer vision, 2024 Spring Semester</li>
                 <li style="margin: 5px;"> Teaching Assistant, Pattern recognition and machine learning, 2023 Fall Semester</li>
-		<li style="margin: 5px;"> Teaching Assistant, Pattern recognition and machine learning, 2022 Fall Semester</li>
+    <li style="margin: 5px;"> Teaching Assistant, Pattern recognition and machine learning, 2022 Fall Semester</li>
                 <li style="margin: 5px;"> Teaching Assistant, Numerical analysis, 2021 Fall Semester</li>
               </p>
             </td>
@@ -396,11 +396,11 @@
   </table>
  
 <p><center>
-	  <div id="clustrmaps-widget" style="width:5%">
-	  <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=26-EpITiANieKUbBkP3kYqH25_ayJEKe2zYZjXiBHyE"></script>
-	  </div>        
-	  <br>
-	    &copy; Xiuwei Xu | Last updated: Feb 27, 2024
+    <div id="clustrmaps-widget" style="width:5%">
+    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=26-EpITiANieKUbBkP3kYqH25_ayJEKe2zYZjXiBHyE"></script>
+    </div>        
+    <br>
+      &copy; Xiuwei Xu | Last updated: Feb 27, 2024
 </center></p>
 </body>
 
