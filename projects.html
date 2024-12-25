@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+
+<style>
+  #full {
+    display: none;
+  }
+</style>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Xiuwei Xu</title>
+  
+  <meta name="author" content="Xiuwei Xu">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <style>
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid #e7e7e7;
+        background-color: #f3f3f3;
+    }
+
+    .navbar li {
+        float: left;
+    }
+
+    .navbar li a {
+        display: block;
+        color: #666;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar li a:hover:not(.active) {
+        background-color: #ddd;
+    }
+
+    .navbar li a.active {
+        color: white;
+        background-color: #4CAF50;
+    }
+  </style>
+</head>
+
+<div class="navbar">
+    <ul>
+      <li><a href="index.html">Main Page</a></li>
+      <li><a href="pubs.html">Publications</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li style="float:right"><a class="active" href="#about">About</a></li>
+    </ul>
+</div>
+
+<body>
+  <table style="width:100%;max-width:860px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:60%;vertical-align:middle">
+              <p style="text-align:center">
+                <name>Xiuwei Xu | 许修为</name>
+              </p>
+              <p> 
+                I am a fourth year Ph.D student in the Department of Automation at Tsinghua University, advised by Prof. <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/"> Jiwen Lu </a>. In 2021, I obtained my B.Eng. in the Department of Automation, Tsinghua University.
+              </p>
+              <p>
+              I work on computer vision and robotics. My current research focuses on:
+                <li style="margin: 5px;" >
+                <b style="color:brown">Embodied AI</b> that grounds robotic planning with physical scenes, especially robotic navigation and mobile manipulation.
+              </li>
+              <li style="margin: 5px;" >
+                <b style="color:green">3D scene perception</b> that accurately and efficiently understands the dynamic 3D scenes captured by robotic agent.
+              </li>
+               <li style="margin: 5px;" >
+                <b style="color:orange">3D reconstruction</b> that builds 3D scenes from raw sensor inputs in online and real-time, especially SLAM and 3D gaussians.
+              </li>
+              </p>
+              <p style="text-align:center">
+                <a href="mailto:xxw21@mails.tsinghua.edu.cn">Email</a> &nbsp/&nbsp
+                <a href="">CV</a> &nbsp/&nbsp
+                <a href="https://scholar.google.com/citations?user=4G627acAAAAJ&hl=en"> Google Scholar</a> &nbsp/&nbsp
+                <a href="https://github.com/xuxw98"> Github </a>
+              </p>
+            </td>
+            <td style="padding:0%;width:100%;max-width:100%">
+              <img style="width:100%;max-width:100%" alt="profile photo" src="images/xxw.jpeg">
+            </td>
+          </tr>
+        </tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="text-indent:20px;width:100%;vertical-align:middle">
+              <p><heading>Research Projects</heading></p>
+            </td>
+          </tr>
+        </tbody></table>
+
+
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <!-- 左侧视频及滚动按钮 -->
+            <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle; position: relative;">
+              <div style="position: relative; width: 305px; height: 290px; overflow: hidden; margin-right: 40px;">
+                <!-- 视频容器 -->
+                <div id="video-container" style="display: flex; transition: transform 0.3s ease;">
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 250px;" controls>
+                      <source src="videos/DSPDet3D.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">DSPDet3D</p>
+                      <button onclick="scrollVideos(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 250px;" controls>
+                      <source src="videos/Online3D.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">Online3D</p>
+                      <button onclick="scrollVideos(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 250px;" controls>
+                      <source src="videos/EmbodiedSAM.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">EmbodiedSAM</p>
+                      <button onclick="scrollVideos(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <!-- 右侧文字内容 -->
+            <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
+              <h3>Efficient and Online 3D Scene Perception</h3>
+              <p>In this project, we study how to make 3D scene perception methods applicable for embodied scenarios such as robotic planning and interaction. Although various research have been conducted on 3D scene perception, it is still very challenging to (1) process large-scale 3D scenes with both high fine granularity and fast speed and (2) perceive the 3D scenes in an online and real-time manner that directly consumes streaming RGB-D video as input. We solve these problems in below works:
+                <li style="margin: 5px;">
+                  <a href="https://xuxw98.github.io/DSPDet3D/">DSPDet3D</a> which is able to detect almost everything (small and large) given a building-level 3D scene, within 2s on a single GPU.
+                </li>
+                <li style="margin: 5px;">
+                  <a href="https://xuxw98.github.io/Online3D/">Online3D</a> which converts offline 3D scene perception models (receive reconstructed point clouds) to online perception models (receive streaming RGB-D videos) in a model and task-agnostic plug-and-play manner.
+                </li>
+                <li style="margin: 5px;">
+                  <a href="https://xuxw98.github.io/ESAM/">EmbodiedSAM</a> which online segments any 3D thing in real time.
+                </li>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tr>
+              <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle;">
+                <video style="width: 305px; height: 250px; margin-right: 40px;" controls>
+                  <source src="videos/MCUFormer.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </td>
+              <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
+                <h3>Foundation Model Compression and Deployment</h3>
+                <p>Deploying power deep neural networks especially large foundation models (GPT-4/Gemini) on robots is usually prohibited due to the strict limits of computational resources. To address this, we propose: (1) fundamental network compression techniques that reduce model complexity without performance degradation; (2) automatic model compression framework that selects the optimal compression policy within hardware resource constraint and (3) hardware-friendly compilation engine to achieve actual speedup and memory savings for robot-based computation platforms. Our system is summarized as:
+                <li style="margin: 5px;">
+                  <a href="https://github.com/liangyn22/MCUFormer">MCUFormer</a> which makes it possible to deploy large vision transformers in STM32F4 (256K memory, 5 USD) for a wide variety of tasks including object detection and instance segmentation.</p>
+              </td>
+            </tr>
+        </table>
+
+
+
+        <script>
+          let currentIndex = 0;
+
+          function scrollVideos(direction) {
+            const container = document.getElementById('video-container');
+            const videoWidth = 305; // 视频宽度
+            const totalVideos = container.children.length;
+
+            // 计算新的索引
+            currentIndex = Math.max(0, Math.min(currentIndex + direction, totalVideos - 1));
+
+            // 更新滚动位置
+            container.style.transform = `translateX(-${currentIndex * videoWidth}px)`;
+          }
+        </script>
+
+  
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:0px">
+              <br>
+              <p style="text-align:right;font-size:small;">
+                <a href="https://jonbarron.info/">Website Template</a>
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </table>
+ 
+<p><center>
+    <div id="clustrmaps-widget" style="width:5%">
+    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=26-EpITiANieKUbBkP3kYqH25_ayJEKe2zYZjXiBHyE"></script>
+    </div>        
+    <br>
+      &copy; Xiuwei Xu | Last updated: Nov 13, 2024
+</center></p>
+</body>
+
+</html>
