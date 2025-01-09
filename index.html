@@ -118,6 +118,11 @@
         </tr>
       </tbody></table>
 
+
+
+
+
+        
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody></tbody>
           <td style="text-indent:20px;width:100%;vertical-align:middle">
           <p>
@@ -176,6 +181,10 @@
 
         </tbody></table>
 
+
+
+
+  
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
             <td style="text-indent:20px;width:100%;vertical-align:middle">
@@ -273,55 +282,100 @@
           <div id="click">
             <p align=right><a href="pubs.html">Full publication list</a></p>
            </div>
-           <!-- <script>
-             function showStuff(txt) {
-               document.getElementById("full").style.display = "block";
-               document.getElementById("click").style.display = "none";
-              //  document.getElementById("selected").style.display = "none";
-             }
-             </script>
 
-      <div id="full">
 
+
+  
+  
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-          <tr>
-            <td style="padding:20px;width:30%;max-width:30%" align="center">
-              <img style="width:100%;max-width:100%" src="images/NerfingMVS.png" alt="dise">
-            </td>
-            <td width="75%" valign="center">
-              <papertitle>NerfingMVS: Guided Optimization of Neural Radiance Fields for Indoor Multi-view Stereo</papertitle>
-              <br>
-              <a href="https://scholar.google.com/citations?user=NrRf7pUAAAAJ&hl=en"> Yi Wei </a>, <a href="http://b1ueber2y.me/academic.html"> Shaohui Liu</a>, <strong>Yongming Rao</strong>, Wang Zhao, <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/"> Jiwen Lu </a>, <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1"> Jie Zhou </a>
-              <br>
-              <em>IEEE International Conference on Computer Vision (<strong>ICCV</strong>)</em>, 2021
-              <br>
-              <font color="red"><strong>Oral Presentation</strong></font>
-              <br>
-              <a href="https://arxiv.org/abs/2109.01129">[arXiv]</a> <a href="https://github.com/weiyithu/NerfingMVS">[Code]</a> <a href="https://weiyithu.github.io/NerfingMVS">[Project page]</a> <a href="https://youtu.be/i-b5lPnYipA">[Video]</a>
-              <br>
-              <p> We present a new multi-view depth estimation method that utilizes both conventional SfM reconstruction and learning-based priors over the recently proposed neural radiance fields (NeRF).</p>
+            <tr>
+            <td style="text-indent:20px;width:100%;vertical-align:middle">
+              <p><heading>Selected Projects</heading></p>
             </td>
           </tr>
+        </tbody></table>
 
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
-            <td style="padding:20px;width:30%;max-width:30%" align="center">
-              <img style="width:100%;max-width:100%" src='images/VTree.png' alt="dise">
+            <!-- 左侧视频及滚动按钮 -->
+            <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle; position: relative;">
+              <div style="position: relative; width: 305px; height: 290px; overflow: hidden; margin-right: 40px;">
+                <!-- 视频容器 -->
+                <div id="video-container" style="display: flex; transition: transform 0.3s ease;">
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 250px;" controls>
+                      <source src="videos/DSPDet3D.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">DSPDet3D</p>
+                      <button onclick="scrollVideos(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 250px;" controls>
+                      <source src="videos/Online3D.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">Online3D</p>
+                      <button onclick="scrollVideos(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 250px;" controls>
+                      <source src="videos/EmbodiedSAM.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">EmbodiedSAM</p>
+                      <button onclick="scrollVideos(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
-            <td width="75%" valign="center">
-              <papertitle>V-tree: Efficient KNN Search on Moving Objects with Road-Network Constraints</papertitle>
-              <br>
-              Bilong Shen, Ying Zhao, Guoliang Li, Weimin Zheng, Yue Qin, Bo Yuan, <strong>Yongming Rao</strong>
-              <br>
-              <em>IEEE International Conference on Data Engineering (<strong>ICDE</strong>)</em>, 2017
-              <br>
-              <a href="https://raoyongming.github.io/files/vtree.pdf">[PDF]</a>
-              <br>
-              <p> We propose a new tree structure for moving objects kNN search with road-network constraints, which can be used in many real-world applications like taxi search.  </p>
-            </td>
-          </tr></tbody></table>
-      </div> -->
 
+            <!-- 右侧文字内容 -->
+            <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
+              <h3>Efficient and Online 3D Scene Perception</h3>
+              <p>In this project, we study how to make 3D scene perception methods applicable for embodied scenarios such as robotic planning and interaction. Although various research have been conducted on 3D scene perception, it is still very challenging to (1) process large-scale 3D scenes with both high fine granularity and fast speed and (2) perceive the 3D scenes in an online and real-time manner that directly consumes streaming RGB-D video as input. We solve these problems in below works:
+                <li style="margin: 5px;">
+                  <a href="https://xuxw98.github.io/DSPDet3D/">DSPDet3D</a> which is able to detect almost everything (small and large) given a building-level 3D scene, within 2s on a single GPU.
+                </li>
+                <li style="margin: 5px;">
+                  <a href="https://xuxw98.github.io/Online3D/">Online3D</a> which converts offline 3D scene perception models (receive reconstructed point clouds) to online perception models (receive streaming RGB-D videos) in a model and task-agnostic plug-and-play manner.
+                </li>
+                <li style="margin: 5px;">
+                  <a href="https://xuxw98.github.io/ESAM/">EmbodiedSAM</a> which online segments any 3D thing in real time.
+                </li>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          let currentIndex = 0;
+
+          function scrollVideos(direction) {
+            const container = document.getElementById('video-container');
+            const videoWidth = 305; // 视频宽度
+            const totalVideos = container.children.length;
+
+            // 计算新的索引
+            currentIndex = Math.max(0, Math.min(currentIndex + direction, totalVideos - 1));
+
+            // 更新滚动位置
+            container.style.transform = `translateX(-${currentIndex * videoWidth}px)`;
+          }
+        </script>
+
+
+
+  
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -337,6 +391,9 @@
           </tr>
         </tbody></table>
 
+
+
+  
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
@@ -351,6 +408,9 @@
           </tr>
         </tbody></table>
 
+
+
+  
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
           <td style="padding:20px;width:100%;vertical-align:middle">
@@ -366,6 +426,9 @@
           </td>
           </tr>
         </tbody></table>
+
+
+
   
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
