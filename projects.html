@@ -119,6 +119,93 @@
         </tbody></table>
 
 
+
+
+
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <!-- 左侧视频及滚动按钮 -->
+            <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle; position: relative;">
+              <div style="position: relative; width: 305px; height: 240px; overflow: hidden; margin-right: 40px;">
+                <!-- 视频容器 -->
+                <div id="video-container3" style="display: flex; transition: transform 0.3s ease;">
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/IGL-Nav.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos3(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">IGL-Nav</p>
+                      <button onclick="scrollVideos3(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/SG-Nav.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos3(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">SG-Nav</p>
+                      <button onclick="scrollVideos3(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/UniGoal.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos3(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">UniGoal</p>
+                      <button onclick="scrollVideos3(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <!-- 右侧文字内容 -->
+            <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
+              <h3>3D Representation for Visual Navigation</h3>
+              <p>In this project, we study how to design a proper representation and how to exploit the representation for general visual navigation. Previous methods mainly focus on BEV map or topological graph, which lacks 3D information to reason fine-grained spatial relationship and detailed color / texture. Therefore, we leverage 3D representation for better modeling of the observed 3D environment. We propose: (1) 3D scene graph as a structural representation for explicit LLM reasoning and unification of different kinds of tasks and (2) 3D gaussians as a renderable representation for accurate image-goal navigation. Our works are summarized as:
+                <li style="margin: 5px;">
+                  <a href="https://GWxuan.github.io/IGL-Nav/">IGL-Nav</a> which proposes incremental 3D gaussian localization for free-view image-goal navigation. We support a challenging application scenarios where the camera for goal capturing and the agent's camera are of very different intrinsics and poses, e.g., a cellphone and a RGB-D camera.
+                </li>
+                <li style="margin: 5px;">
+                  <a href="https://bagh2178.github.io/SG-Nav/">SG-Nav</a> --> <a href="https://bagh2178.github.io/UniGoal/">UniGoal</a>. <b>SG-Nav</b> builds an online 3D scene graph to prompt LLM, which enables training-free object-goal navigation with high success rate. <b>UniGoal</b> further extends SG-Nav to general goal-oriented navigation. We unify all goals into a uniform goal graph and leverage LLM to reason how to explore based on graph matching between goal and scene graphs.
+                </li>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          let currentIndex3 = 0;
+
+          function scrollVideos3(direction) {
+            const container = document.getElementById('video-container3');
+            const videoWidth = 305; // 视频宽度
+            const totalVideos = container.children.length;
+
+            // 计算新的索引
+            currentIndex3 = Math.max(0, Math.min(currentIndex3 + direction, totalVideos - 1));
+
+            // 更新滚动位置
+            container.style.transform = `translateX(-${currentIndex3 * videoWidth}px)`;
+          }
+        </script>
+
+
+
+
+
+
+
+
+
         
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
@@ -169,38 +256,15 @@
               <h3>Efficient and Online 3D Scene Perception</h3>
               <p>In this project, we study how to make 3D scene perception methods applicable for embodied scenarios such as robotic planning and interaction. Although various research have been conducted on 3D scene perception, it is still very challenging to (1) process large-scale 3D scenes with both high fine granularity and fast speed and (2) perceive the 3D scenes in an online and real-time manner that directly consumes streaming RGB-D video as input. We solve these problems in below works:
                 <li style="margin: 5px;">
-                  <a href="https://xuxw98.github.io/DSPDet3D/">DSPDet3D</a> which is able to detect almost everything (small and large) given a building-level 3D scene, within 2s on a single GPU.
+                  <a href="https://xuxw98.github.io/DSPDet3D/">DSPDet3D</a> --> <a href="https://github.com/GWxuan/TSP3D">TSP3D</a>. <b>DSPDet3D</b> is able to detect almost everything (small and large) given a building-level 3D scene, within 2s on a single GPU. <b>TSP3D</b> extends DSPDet3D to 3D visual grounding with text-guided pruning and completion-based addition, achieving state-of-the-art accuracy and speed even compared with two-stage methods.
                 </li>
                 <li style="margin: 5px;">
-                  <a href="https://xuxw98.github.io/Online3D/">Online3D</a> which converts offline 3D scene perception models (receive reconstructed point clouds) to online perception models (receive streaming RGB-D videos) in a model and task-agnostic plug-and-play manner.
-                </li>
-                <li style="margin: 5px;">
-                  <a href="https://xuxw98.github.io/ESAM/">EmbodiedSAM</a> which online segments any 3D thing in real time.
+                  <a href="https://xuxw98.github.io/Online3D/">Online3D</a> --> <a href="https://xuxw98.github.io/ESAM/">EmbodiedSAM</a>. <b>Online3D</b> converts offline 3D scene perception models (receive reconstructed point clouds) to online perception models (receive streaming RGB-D videos) in a model and task-agnostic plug-and-play manner. <b>EmbodiedSAM</b> online segments any 3D thing in real time.
                 </li>
               </p>
             </td>
           </tr>
         </table>
-
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tr>
-              <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle;">
-                <video style="width: 305px; height: 250px; margin-right: 40px;" controls>
-                  <source src="videos/MCUFormer.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </td>
-              <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
-                <h3>Foundation Model Compression and Deployment</h3>
-                <p>Deploying power deep neural networks especially large foundation models (GPT-4/Gemini) on robots is usually prohibited due to the strict limits of computational resources. To address this, we propose: (1) fundamental network compression techniques that reduce model complexity without performance degradation; (2) automatic model compression framework that selects the optimal compression policy within hardware resource constraint and (3) hardware-friendly compilation engine to achieve actual speedup and memory savings for robot-based computation platforms. Our system is summarized as:
-                <li style="margin: 5px;">
-                  <a href="https://github.com/liangyn22/MCUFormer">MCUFormer</a> which makes it possible to deploy large vision transformers in STM32F4 (256K memory, 5 USD) for a wide variety of tasks including object detection and instance segmentation.</p>
-              </td>
-            </tr>
-        </table>
-
-
 
         <script>
           let currentIndex = 0;
@@ -217,6 +281,75 @@
             container.style.transform = `translateX(-${currentIndex * videoWidth}px)`;
           }
         </script>
+
+
+
+
+
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+              <!-- 左侧视频及滚动按钮 -->
+            <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle; position: relative;">
+              <div style="position: relative; width: 305px; height: 240px; overflow: hidden; margin-right: 40px;">
+                <!-- 视频容器 -->
+                <div id="video-container2" style="display: flex; transition: transform 0.3s ease;">
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/MCUFormer.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos2(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">MUCFormer</p>
+                      <button onclick="scrollVideos2(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/Q-VLM.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos2(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">Q-VLM</p>
+                      <button onclick="scrollVideos2(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
+              <h3>Foundation Model Compression and Deployment</h3>
+              <p>Deploying power deep neural networks especially large foundation models (GPT-4/Gemini) on robots is usually prohibited due to the strict limits of computational resources. To address this, we propose: (1) fundamental network compression techniques that reduce model complexity without performance degradation; (2) automatic model compression framework that selects the optimal compression policy within hardware resource constraint and (3) hardware-friendly compilation engine to achieve actual speedup and memory savings for robot-based computation platforms. Our system is summarized as:
+                <li style="margin: 5px;">
+                  <a href="https://github.com/liangyn22/MCUFormer">MCUFormer</a> which makes it possible to deploy large vision transformers in STM32F4 (256K memory, 5 USD) for a wide variety of tasks including object detection and instance segmentation.
+                </li>
+                <li style="margin: 5px;">
+                  <a href="https://github.com/ChangyuanWang17/QVLM">Q-VLM</a> which quantizes large vision and language models to 4-bit and enables on-device deployment. Our method compresses the memory by 2.78x and increase the generate speed by 1.44x on 13B LLaVA model without performance degradation on diverse multi-modal reasoning tasks.
+                </li>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          let currentIndex2 = 0;
+
+          function scrollVideos2(direction) {
+            const container = document.getElementById('video-container2');
+            const videoWidth = 305; // 视频宽度
+            const totalVideos = container.children.length;
+
+            // 计算新的索引
+            currentIndex2 = Math.max(0, Math.min(currentIndex2 + direction, totalVideos - 1));
+
+            // 更新滚动位置
+            container.style.transform = `translateX(-${currentIndex2 * videoWidth}px)`;
+          }
+        </script>
+
 
   
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
