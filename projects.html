@@ -132,6 +132,62 @@
             <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle; position: relative;">
               <div style="position: relative; width: 305px; height: 240px; overflow: hidden; margin-right: 40px;">
                 <!-- 视频容器 -->
+                <div id="video-container4" style="display: flex; transition: transform 0.3s ease;">
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/MoTo.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos4(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">MoTo</p>
+                      <button onclick="scrollVideos4(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <!-- 右侧文字内容 -->
+            <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
+              <h3>Data-efficient Mobile Manipulation</h3>
+              <p>In this project, we study the challenging mobile manipulation task, which requires an accurate and proper combination of navigation and manipulation. Since whole-body mobile manipulation data is limited, we define this task as a subsequent stage of navigation. However, existing navigation methods end at a very coarse location which is usually 3-5m away from the manipulation area, which is far from the <5mm accuracy required by maniulation polices. Therefore, we propose: (1) optimization-based framework for docking point selection, serving as an intermediate stage of navigation and fixed-base manipulation and (2) 3D data generation to train spatially-generalized manipulation policy, which enables robust manipulation under any viewpoint and object location. Our works are summarized as:
+                <li style="margin: 5px;">
+                  <a href="https://gary3410.github.io/momanipVLA/">MoManipVLA</a> --> <a href="https://gary3410.github.io/MoTo/">MoTo</a>. <b>MoManipVLA</b> utilizes pre-trained VLA models to generate waypoints of the end-effector. The out-of-range waypoints can be used to control the robot's base through motion planning objectives. <b>MOTO</b> is a more general framework that works for any off-the-shelf fixed-base manipulation policy. It models docking point selection as a "move and touch" problem of the end-effector and the object part.
+                </li>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          let currentIndex4 = 0;
+
+          function scrollVideos4(direction) {
+            const container = document.getElementById('video-container4');
+            const videoWidth = 305; // 视频宽度
+            const totalVideos = container.children.length;
+
+            // 计算新的索引
+            currentIndex4 = Math.max(0, Math.min(currentIndex4 + direction, totalVideos - 1));
+
+            // 更新滚动位置
+            container.style.transform = `translateX(-${currentIndex4 * videoWidth}px)`;
+          }
+        </script>
+
+
+
+
+
+
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <!-- 左侧视频及滚动按钮 -->
+            <td style="padding: 10px; width: 30%; max-width: 30%; text-align: center; vertical-align: middle; position: relative;">
+              <div style="position: relative; width: 305px; height: 240px; overflow: hidden; margin-right: 40px;">
+                <!-- 视频容器 -->
                 <div id="video-container3" style="display: flex; transition: transform 0.3s ease;">
                   <div style="width: 305px; text-align: center;">
                     <video style="width: 305px; height: 200px;" controls>
@@ -155,6 +211,17 @@
                       <button onclick="scrollVideos3(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
                     </div>
                   </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/GC-VLN.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos3(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">GC-VLN</p>
+                      <button onclick="scrollVideos3(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
@@ -167,7 +234,7 @@
                   <a href="https://GWxuan.github.io/IGL-Nav/">IGL-Nav</a> which proposes incremental 3D gaussian localization for free-view image-goal navigation. We support a challenging application scenarios where the camera for goal capturing and the agent's camera are of very different intrinsics and poses, e.g., a cellphone and a RGB-D camera.
                 </li>
                 <li style="margin: 5px;">
-                  <a href="https://bagh2178.github.io/SG-Nav/">SG-Nav</a> --> <a href="https://bagh2178.github.io/UniGoal/">UniGoal</a>. <b>SG-Nav</b> builds an online 3D scene graph to prompt LLM, which enables training-free object-goal navigation with high success rate. <b>UniGoal</b> further extends SG-Nav to general goal-oriented navigation. We unify all goals into a uniform goal graph and leverage LLM to reason how to explore based on graph matching between goal and scene graphs.
+                  <a href="https://bagh2178.github.io/SG-Nav/">SG-Nav</a> --> <a href="https://bagh2178.github.io/UniGoal/">UniGoal</a> --> <a href="https://bagh2178.github.io/GC-VLN/">GC-VLN</a>. <b>SG-Nav</b> builds an online 3D scene graph to prompt LLM, which enables training-free object-goal navigation with high success rate. <b>UniGoal</b> extends SG-Nav to general goal-oriented navigation. We unify all goals into a uniform goal graph and leverage LLM to reason how to explore based on graph matching between goal and scene graphs. <b>GC-VLN</b> further unifies vision-and-language navigation task into our framework by regarding language instruction as DAG to solve graph constraints.
                 </li>
               </p>
             </td>
