@@ -144,6 +144,27 @@
           </tr>
         </tbody></table>
 
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+          <tr>
+            <td style="padding:20px;width:30%;max-width:30%" align="center">
+              <img style="width:100%;max-width:100%" src='images/R2RGen.gif' alt="dise">
+            </td>
+            <td width="75%" valign="center">
+              <papertitle>R2RGen: Real-to-Real 3D Data Generation for Spatially Generalized Manipulation</papertitle>
+              <br>
+              <strong>Xiuwei Xu</strong>*, <a href="https://github.com/ponymaay">Angyuan Ma</a>*, Hankun Li, Bingyao Yu, <a href="http://www.zhengzhu.net/">Zheng Zhu</a>, <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1">Jie Zhou</a>, <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a>
+              <br>
+              <em>arXiv</em>, 2025
+              <br>
+              <a href="https://arxiv.org/abs/2510.08547">[arXiv]</a> <a href="https://r2rgen.github.io/">[Project Page]</a> <a href="https://colab.research.google.com/drive/19zrG9IG0DkbbJzB12gKC1Ur2r--jZzRC?usp=sharing">[Colab]</a>
+              <br>
+              <p> We propose a real-to-real 3D data generation framework for robotic manipulation. R2RGen generates spatially diverse manipulation demonstrations for training real-world policies, requiring only one human demonstration without simulator setup.</p>
+            </td>
+          </tr>
+
+        </tbody></table>
+
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
@@ -403,6 +424,17 @@
                       <button onclick="scrollVideos4(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
                     </div>
                   </div>
+                  <div style="width: 305px; text-align: center;">
+                    <video style="width: 305px; height: 200px;" controls>
+                      <source src="videos/R2RGen.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                      <button onclick="scrollVideos4(-1)" style="width: 30px; height: 30px; margin-right: 5px;">◀</button>
+                      <p style="margin: 0; font-size: 12px; color: #555;">R2RGen</p>
+                      <button onclick="scrollVideos4(1)" style="width: 30px; height: 30px; margin-left: 5px;">▶</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
@@ -410,9 +442,12 @@
             <!-- 右侧文字内容 -->
             <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
               <h3>Data-efficient Mobile Manipulation</h3>
-              <p>In this project, we study the challenging mobile manipulation task, which requires an accurate and proper combination of navigation and manipulation. Since whole-body mobile manipulation data is limited, we define this task as a subsequent stage of navigation. However, existing navigation methods end at a very coarse location which is usually 3-5m away from the manipulation area, which is far from the <5mm accuracy required by maniulation polices. Therefore, we propose: (1) optimization-based framework for docking point selection, serving as an intermediate stage of navigation and fixed-base manipulation and (2) 3D data generation to train spatially-generalized manipulation policy, which enables robust manipulation under any viewpoint and object location. Our works are summarized as:
+              <p>In this project, we study the challenging mobile manipulation task, which requires an accurate and proper combination of navigation and manipulation. Since whole-body mobile manipulation data is limited, we define this task as a subsequent stage of navigation. However, existing navigation methods end at a very coarse location which is usually 3-5m away from the manipulation area, which is far from the <5mm accuracy required by maniulation polices. Therefore, we propose: (1) optimization-based framework for docking point selection, serving as an intermediate stage of navigation and fixed-base manipulation and (2) 3D policy and 3D data generation to train generalized policy with minimal data, which enables robust manipulation under any viewpoint, object location and appearance. Our works are summarized as:
                 <li style="margin: 5px;">
-                  <a href="https://gary3410.github.io/momanipVLA/">MoManipVLA</a> --> <a href="https://gary3410.github.io/MoTo/">MoTo</a>. <b>MoManipVLA</b> utilizes pre-trained VLA models to generate waypoints of the end-effector. The out-of-range waypoints can be used to control the robot's base through motion planning objectives. <b>MoTo</b> is a more general framework that works for any off-the-shelf fixed-base manipulation policy. It models docking point selection as a "move and touch" problem of the end-effector and the object part.
+                  <a href="https://gary3410.github.io/momanipVLA/">MoManipVLA</a> --> <a href="https://gary3410.github.io/MoTo/">MoTo</a>. <b>MoManipVLA</b> utilizes pre-trained VLA models to generate waypoints of the end-effector. The out-of-range waypoints can be used to control the robot's base through motion planning objectives. <b>MoTo</b> is a more general framework that models docking point selection as a "move and touch" problem of the end-effector and the object part.
+                </li>
+                <li style="margin: 5px;">
+                  <a href="https://r2rgen.github.io/">R2RGen</a>. <b>R2RGen</b> generates diverse manipulation demonstrations based on real-world pointcloud-trajectory editing, which trains spatially generalized 3D policy that is robust to varying object locations and robot viewpoints.
                 </li>
               </p>
             </td>
@@ -644,7 +679,7 @@
             <heading>Academic Services</heading>
             <p>
               <li style="margin: 5px;"> 
-                <b>Conference Reviewer:</b> ICML 2025, CVPR 2025, ICLR 2025, NeurIPS 2024-2025, ECCV 2024, ICCV 2023-2025, CoRL 2025, IROS 2025, ICASSP 2022-2023
+                <b>Conference Reviewer:</b> ICML 2025, CVPR 2025-2026, ICLR 2025-2026, NeurIPS 2024-2025, ECCV 2024, ICCV 2023-2025, CoRL 2025, IROS 2025, ICASSP 2022-2023
               </li>
               <li style="margin: 5px;"> 
                 <b>Journal Reviewer:</b> IJCV, T-IP, T-ITS, T-MM, T-CSVT
