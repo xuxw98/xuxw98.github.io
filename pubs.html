@@ -72,12 +72,13 @@
                 I am a fifth year Ph.D student in the Department of Automation at Tsinghua University, advised by Prof. <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/"> Jiwen Lu </a>. In 2021, I obtained my B.Eng. in the Department of Automation, Tsinghua University.
               </p>
               <p>
-              I work on computer vision and robotics. My current research focuses on:
+              I work on computer vision and robotics. My <b>current</b> research focus:
                 <li style="margin: 5px;" >
-                <b style="color:brown">General manipulation</b> that learns generalized manipulation skills with data-efficient imitation learning and 3D policy.
+                <b style="color:brown">Scalable manipulation</b> that studies how policy and evaluator (world models) pretraining can consume broad data sources for scalable robot learning.
               </li>
+              My <b>previous</b> research focused on:
               <li style="margin: 5px;" >
-                <b style="color:green">Visual navigation</b> that enables robots to explore the environment according to multimodal instructions.
+                <b style="color:green">Mobile manipulation</b> that studies general navigation, fine-grained navigation, and generalizable 3D data synthesis for embodied agents.
               </li>
               <li style="margin: 5px;" >
                 <b style="color:orange">3D scene perception</b> that accurately and efficiently understands the dynamic 3D scenes captured by robotic agent.
@@ -121,6 +122,27 @@
 
           <tr>
             <td style="padding:20px;width:30%;max-width:30%" align="center">
+              <img style="width:100%;max-width:100%" src='images/R2RDreamer.png' alt="dise">
+            </td>
+            <td width="75%" valign="center">
+              <papertitle>R2RDreamer: 3D-aware Data Augmentation for Spatially-generalized 2D Manipulation Policies</papertitle>
+              <br>
+              <strong>Xiuwei Xu</strong>*, <a href="https://scholar.google.com/citations?user=tGepc6EAAAAJ&hl=en">Haowen Sun</a>*, <a href="https://github.com/ponymaay">Angyuan Ma</a>*, Yiwei Zhang, <a href="https://gary3410.github.io/">Zhenyu Wu</a>, <a href="https://jeffwang987.github.io/">Xiaofeng Wang</a>, Bingyao Yu, <a href="http://www.zhengzhu.net/">Zheng Zhu</a>, <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1">Jie Zhou</a>, <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a>
+              <br>
+              <em>arXiv</em>, 2026
+              <br>
+              <a href="https://arxiv.org/abs/2606.17040">[arXiv]</a> <a href="https://r2rdreamer.github.io/">[Project Page]</a>
+              <br>
+              <p>We propose R2RDreamer, a real-to-real demonstration augmentation framework for spatially generalized 2D manipulation policies. R2RDreamer edits incomplete object point clouds and end-effector trajectories in 3D, projects them into occlusion-aware image-space controls, and uses dense-control video completion to synthesize temporally coherent RGB-action demonstrations from limited real data.</p>
+            </td>
+          </tr>
+
+        </tbody></table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+          <tr>
+            <td style="padding:20px;width:30%;max-width:30%" align="center">
               <img style="width:100%;max-width:100%" src='images/iMaC.gif' alt="dise">
             </td>
             <td width="75%" valign="center">
@@ -130,7 +152,7 @@
               <br>
               <em>arXiv</em>, 2026
               <br>
-              <a href="https://arxiv.org/abs/2606.09813">[arXiv]</a> <a href="https://imac-wm.github.io/">[Project Page]</a>
+              <a href="https://arxiv.org/abs/2606.09813">[arXiv]</a> <a href="https://github.com/imac-wm/iMac">[Code]</a> <a href="https://imac-wm.github.io/">[Project Page]</a>
               <br>
               <p>We propose iMaC, an image-as-action control paradigm for embodied world models. iMaC converts robot actions into dense motion and contact images through URDF/FK rendering and RGB-D geometry, exposing spatial motion intention and robot-scene contact relations. These image controls enable contact-sensitive future prediction and closed-loop policy evaluation.</p>
             </td>
@@ -172,7 +194,7 @@
               <br>
               <em>arXiv</em>, 2026
               <br>
-              <a href="https://arxiv.org/abs/2604.02408">[arXiv]</a> <a href="https://f2f-ap.github.io/">[Project Page]</a>
+              <a href="https://arxiv.org/abs/2604.02408">[arXiv]</a> <a href="https://github.com/f2f-ap/f2f-ap">[Code]</a> <a href="https://f2f-ap.github.io/">[Project Page]</a>
               <br>
               <p>We propose F2F-AP, a flow-to-future asynchronous policy for real-time dynamic manipulation. It predicts object flow to synthesize future observations and aligns visual features with future states, allowing policies to compensate for latency and interact with moving objects.</p>
             </td>
@@ -672,7 +694,7 @@
     <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=26-EpITiANieKUbBkP3kYqH25_ayJEKe2zYZjXiBHyE"></script>
     </div>        
     <br>
-      &copy; Xiuwei Xu | Last updated: June 11, 2026
+      &copy; Xiuwei Xu | Last updated: June 16, 2026
 </center></p>
 </body>
 

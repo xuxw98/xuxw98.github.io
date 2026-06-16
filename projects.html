@@ -72,12 +72,13 @@
                 I am a fifth year Ph.D student in the Department of Automation at Tsinghua University, advised by Prof. <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/"> Jiwen Lu </a>. In 2021, I obtained my B.Eng. in the Department of Automation, Tsinghua University.
               </p>
               <p>
-              I work on computer vision and robotics. My current research focuses on:
+              I work on computer vision and robotics. My <b>current</b> research focus:
                 <li style="margin: 5px;" >
-                <b style="color:brown">General manipulation</b> that learns generalized manipulation skills with data-efficient imitation learning and 3D policy.
+                <b style="color:brown">Scalable manipulation</b> that studies how policy and evaluator (world models) pretraining can consume broad data sources for scalable robot learning.
               </li>
+              My <b>previous</b> research focused on:
               <li style="margin: 5px;" >
-                <b style="color:green">Visual navigation</b> that enables robots to explore the environment according to multimodal instructions.
+                <b style="color:green">Mobile manipulation</b> that studies general navigation, fine-grained navigation, and generalizable 3D data synthesis for embodied agents.
               </li>
               <li style="margin: 5px;" >
                 <b style="color:orange">3D scene perception</b> that accurately and efficiently understands the dynamic 3D scenes captured by robotic agent.
@@ -163,12 +164,12 @@
             <!-- 右侧文字内容 -->
             <td width="70%" style="vertical-align: middle; padding: 10px; text-align: left;">
               <h3>Data-efficient Mobile Manipulation</h3>
-              <p>In this project, we study the challenging mobile manipulation task, which requires an accurate and proper combination of navigation and manipulation. Since whole-body mobile manipulation data is limited, we define this task as a subsequent stage of navigation. However, existing navigation methods end at a very coarse location which is usually 3-5m away from the manipulation area, which is far from the <5mm accuracy required by maniulation polices. Therefore, we propose: (1) optimization-based framework for docking point selection, serving as an intermediate stage of navigation and fixed-base manipulation and (2) 3D policy and 3D data generation to train generalized policy with minimal data, which enables robust manipulation under any viewpoint, object location and appearance. Our works are summarized as:
+              <p>In this project, we study mobile manipulation, where a robot must combine long-horizon navigation with precise local manipulation. Whole-body demonstrations are expensive to collect, and standard navigation usually stops at a coarse region that is still far from the accuracy required by manipulation policies. We therefore focus on two complementary problems: accurate docking that turns navigation into a suitable fixed-base manipulation setup, and scalable data generation that improves policy generalization across viewpoints, object locations, and object geometry for both 2D and 3D policies. Our works are summarized as:
                 <li style="margin: 5px;">
-                  <a href="https://gary3410.github.io/momanipVLA/">MoManipVLA</a> --> <a href="https://gary3410.github.io/MoTo/">MoTo</a>. <b>MoManipVLA</b> utilizes pre-trained VLA models to generate waypoints of the end-effector. The out-of-range waypoints can be used to control the robot's base through motion planning objectives. <b>MoTo</b> is a more general framework that models docking point selection as a "move and touch" problem of the end-effector and the object part.
+                  <a href="https://gary3410.github.io/momanipVLA/">MoManipVLA</a> --> <a href="https://gary3410.github.io/MoTo/">MoTo</a>. <b>MoManipVLA</b> transfers VLA waypoint prediction to mobile manipulation, using out-of-range end-effector waypoints to guide base motion. <b>MoTo</b> further abstracts docking as a "move and touch" optimization problem, selecting robot poses that satisfy manipulation-oriented geometric constraints.
                 </li>
                 <li style="margin: 5px;">
-                  <a href="https://r2rgen.github.io/">R2RGen</a> --> <a href="https://wangyr22.github.io/ShapeGen/">ShapeGen</a>. <b>R2RGen</b> generates diverse manipulation demonstrations based on real-world pointcloud-trajectory editing, which trains spatially generalized 3D policy that is robust to varying object locations and robot viewpoints. <b>ShapeGen</b> further extends data generation to category-level manipulation by producing function-aware, shape-varied demonstrations with minimal annotation, improving robustness to in-category object geometry.
+                  <a href="https://r2rgen.github.io/">R2RGen</a> --> <a href="https://wangyr22.github.io/ShapeGen/">ShapeGen</a> --> <a href="https://r2rdreamer.github.io/">R2RDreamer</a>. <b>R2RGen</b> edits real pointcloud-trajectory pairs to generate spatially diverse demonstrations for generalized 3D policies. <b>ShapeGen</b> extends data generation to category-level manipulation by producing function-aware shape variations with minimal annotation. <b>R2RDreamer</b> further converts 3D edits into more scalable 2D videos by occlusion-aware projection and video completion.
                 </li>
               </p>
             </td>
@@ -445,7 +446,7 @@
     <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=26-EpITiANieKUbBkP3kYqH25_ayJEKe2zYZjXiBHyE"></script>
     </div>        
     <br>
-      &copy; Xiuwei Xu | Last updated: June 11, 2026
+      &copy; Xiuwei Xu | Last updated: June 16, 2026
 </center></p>
 </body>
 
